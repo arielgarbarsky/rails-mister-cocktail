@@ -1,11 +1,19 @@
-<h2><%= @cocktail.name %></h2>
-<p><% @cocktail.doses.each do |dose|%>
-  <%= dose.ingredient.name %>
-  <br/>
-  <%= dose.description %><br/><%= link_to "Destroy dose", dose_path(dose), method: :delete %>
-  <% end %>
-  <br/>
-  <%= link_to "Add a Dose", new_cocktail_dose_path(@cocktail) %>
-  <br/>
-  <%= link_to "List of Cocktails", cocktails_path %>
-</p>
+<div class="row container col-12">
+  <div class="card-show col-6 offset-3" style="width: 18rem;">
+    <div class="card-header">
+    <%= @cocktail.name %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @cocktail.doses.each do |dose|%>
+    <li class="list-group-item"> <%= dose.ingredient.name %> </li>
+    <br/>
+    <li class="list-group-item"><%= dose.description %></li>
+    <br/>
+    <%= link_to "Destroy dose", dose_path(dose), method: :delete, class: 'btn btn-danger' %>
+    <% end %>
+    <br/>
+    <%= link_to "Add a Dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-dark' %>
+    <br/>
+    <%= link_to "List of Cocktails", cocktails_path, class: 'btn btn-dark' %>
+  </p>
+</div>

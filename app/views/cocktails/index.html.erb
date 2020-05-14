@@ -1,8 +1,20 @@
-  <div class= index>
-    <h1>List of Cocktails:</h1>
+<div class="container col-12">
+  <div class="row new-form ">
+    <div class="col-6 offset-3">
+      <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          List of Cocktails:
+        </div>
+        <ul class="list-group list-group-flush">
+          <% @cocktails.each do |cocktail| %>
+          <li class="list-group-item"><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
+          <% end %>
+        </ul>
+      </div>
+      <br/>
+      <div>
+        <%= link_to "Add a cocktail", new_cocktail_path, class: 'btn btn-dark'  %>
+      </div>
+    </div>
   </div>
-  <ul>
-    <% @cocktails.each do |cocktail| %>
-    <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-    <% end %>
-  </ul>
+</div>
