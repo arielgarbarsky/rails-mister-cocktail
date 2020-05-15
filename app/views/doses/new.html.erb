@@ -1,12 +1,16 @@
-<div class="container col-12">
-  <div class="row new-form ">
-    <div class="col-6 offset-3">
-      <h2>Add a new dose</h2>
+<div class="row container col-12">
+  <div class="col-4 offset-4">
+    <div class= "create-doses-form">
+      <div class="form-header">
+        Add your favourite doses for your cocktail:
+      </div>
       <%= simple_form_for [@cocktail, @dose] do |f| %>
-      <%= f.association :ingredient %>
-      <%= f.input :description %>
-      <%= f.button :submit, class: "btn btn-primary" %>
+      <%= f.association :ingredient, :include_blank => false %>
+      <%= f.input :description, placeholder: 'Add the cocktail description' %>
+      <%= f.button :submit, class: "btn btn--stripe" %>
       <% end %>
     </div>
+    <br>
   </div>
 </div>
+<%= link_to "List of Cocktails", cocktails_path, class: 'btn btn--stripe' %>

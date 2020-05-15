@@ -1,12 +1,16 @@
-<div class="container col-12">
-  <div class="row new-form ">
-    <div class="col-6 offset-3">
-      <h2>Add your favourite cocktail:</h2>
+<div class="row container col-12">
+  <div class="col-4 offset-4">
+    <div class= "create-cocktail-form">
+      <div class="form-header">
+        Add your favourite cocktail:
+      </div>
       <%= simple_form_for(@cocktail) do |f| %>
-      <%= f.input :name %>
-      <%= f.button :submit, class: 'btn btn-success' %>
+      <%= f.input :name, placeholder: 'Cocktail name...'%>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, 'Prepare my cocktail!', class: 'btn btn--stripe' %>
       <% end %>
-      <%= link_to "List of Cocktails", cocktails_path, class: 'btn btn-dark' %>
     </div>
+    <br>
   </div>
 </div>
+<%= link_to "List of Cocktails", cocktails_path, class: 'btn btn--stripe' %>
